@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>100% Pure Fire!</title>
+</head>
+<body ng-controlle="HomeCtrl" ng-cloak>
+
+    <nav class="top-bar" data-topbar="">
+        <ul class="title-area">
+            <li class="name">
+                <h1>
+                    <a href="#/home">100% Pure Firestorm Store</a>
+                </h1>
+            </li>
+            <a href="#/dashboard">Dashboard</a>
+            <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <form stripe-form="stripeCallback" name="checkoutForm">
+            <div class="form-group">
+                <div class="row">
+                    <input class='form-control' ng-model="name" type='text' placeholder="Carholder's name" name="name" />
+
+                    <input class="form-control" ng-model="number" placeholder="Card Number" 
+                             payments-format="card" payments-validate="card" name="card" />
+              
+                    <input class="form-control" ng-model="expiry" placeholder="Expiration" 
+                             payments-format="expiry" payments-validate="expiry"                
+                             name="expiry" />
+             
+                    <input class="form-control" ng-model="cvc" placeholder="CVC" payments-format="cvc" payments-validate="cvc" name="cvc" />
+                </div>
+            </div>
+                                        
+            
+            <div class="form-group">
+                <div class="row"> 
+                    <h4>Billing Info</h4>  
+                    <input class="form-control" ng-model="addressLine1" placeholder="Address line 1" name="addressLine1" type="text" />
+
+                    <input class="form-control" ng-model="addressLine2" placeholder="Address line 2" name="addressLine2" type="text" />
+
+                    <input class="form-control" ng-model="addressCity" placeholder="City" name="addressCity" type="text" />
+
+                    <select class="form-control" ng-model="addressState" name="addressState">
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+
+                    <input class="form-control" ng-model="addressZip" name="addressZip" placeholder="Zip code" type="text"></input>
+
+                    <input class="form-control" ng-model="addressCountry" placeholder="Country" type="text"></input>
+
+                    <button class="btn btn-primary form-control" type="submit">Submit</button>
+                    <div ng-if="checkoutForm.card.$invalid">Error: invalid card number!</div>
+                </div> 
+            </div>
+        </form>
+    </div>
+</body>
+</html>
