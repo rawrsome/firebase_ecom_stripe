@@ -20,7 +20,17 @@
         </ul>
     </nav>
 
-
+    <div class="container">
+        <form action='' method='POST'>
+            <div class="form-group">
+                <div class="row">
+                    <input ng-model="newItem.title" placeholder="Item title" class="form-control" type="text" />
+                    <input ng-model="newItem.price" class="form-control" type="number" />
+                    <button type="submit">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>

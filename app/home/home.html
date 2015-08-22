@@ -5,7 +5,7 @@
     <title>100% Pure Fire!</title>
 </head>
 <body ng-controlle="HomeCtrl" ng-cloak>
-
+    <!-- nav -->
     <nav class="top-bar" data-topbar="">
         <ul class="title-area">
             <li class="name">
@@ -17,6 +17,44 @@
             <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
         </ul>
     </nav>
+
+
+
+    <!-- main -->
+    <h2>Products</h2>       
+    <ul class="product-list small-block-grid-3">
+        <li ng-repeat="product in products">
+            <figure>
+                <img ng-src="{{product.image}}" alt="{{product.title}}">
+                <figcaption>
+                    <h3>{{product.title}}, {{product.price}}$</h3>
+                    <button ng-click="addToCart(product);">Add to cart</button>
+                </figcaption>
+            </figure>
+        </li>
+    </ul>
+    <!-- add to cart hover -->
+    <div ng-if="cart.length" class="shopping-cart">
+        <h2>{{cart.length}} items in cart, {{getCartPrice()}}$</h2>
+
+        <span class="cart-item th radius" ng-repeat="product in cart">
+            <img ng-src="{{product.image}}" title="{{product.title}}"/>
+            <span class="badge" ng-show="product.quantity > 1">
+                x{{product.quantity}}
+            </span>
+        </span>
+
+        <button ng-click="checkout();">Checkout</button>
+    </div>
+
+
+
+
+
+
+
+
+
 
     <div class="container">
         <form stripe-form="stripeCallback" name="checkoutForm">
@@ -34,7 +72,8 @@
                     <input class="form-control" ng-model="cvc" placeholder="CVC" payments-format="cvc" payments-validate="cvc" name="cvc" />
                 </div>
             </div>
-                                        
+
+
             
             <div class="form-group">
                 <div class="row"> 
